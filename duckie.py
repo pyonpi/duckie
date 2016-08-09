@@ -3,6 +3,7 @@
 import sys
 import os
 import getopt
+import base64
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -24,7 +25,7 @@ for opt, arg in opts:
         
         if inputfile.lower().endswith((".png", ".jpg", ".jpeg", ".bmp", ".gif", ".tiff", ".exif")):
             with open(inputfile, "wb") as fh:
-                fh.write(imgData.decode('base64'))
+                fh.write(base64.b64decode(imgData))
                 print ("Enjoy your duck!")
         else:
             print ("Sorry, that is not a supported file.")
